@@ -16,7 +16,7 @@ const app = express()
 
 app.use(express.json())
 app.use(cors({
-    origin: ["https://my-blog-app-mu-one.vercel.app/"],
+    origin: [""],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }))

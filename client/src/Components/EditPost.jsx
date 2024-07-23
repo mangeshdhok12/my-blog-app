@@ -17,7 +17,7 @@ const EditPost = () => {
      
 
 
-        axios.put('http://localhost:3001/editpost/'+id,{title, description} ).then(res => {
+        axios.put('https://mern-blog-app-mocha-pi.vercel.app/editpost/'+id,{title, description} ).then(res => {
             if (res.data === "Success") {
                 window.location.href = "/"
             }
@@ -25,7 +25,7 @@ const EditPost = () => {
     }
 
     useEffect(() => {
-        axios.get('http://localhost:3001/getpostbyid' + id).then(result => {
+        axios.get('https://mern-blog-app-mocha-pi.vercel.app/getpostbyid' + id).then(result => {
             setTitle(result.data.title)
             setDescription(result.data.description)
         }).catch(err => console.log(err))

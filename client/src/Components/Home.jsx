@@ -6,7 +6,7 @@ import './styles.css'
 const Home = () => {
 const [posts, setPosts]=useState([])
 useEffect(()=>{
-    axios.get('http://localhost:3001/getposts').then(posts=>setPosts(posts.data))
+    axios.get('https://mern-blog-app-mocha-pi.vercel.app/getposts').then(posts=>setPosts(posts.data))
     .catch(err=> console.log(err))
 },[])
 
@@ -15,7 +15,7 @@ useEffect(()=>{
       {posts.map(post=>(
         <Link  to={`/post/${post._id}` } className="post">
       
-          <img src={`http://localhost:3001/Images/${post.file}`} alt="" />
+          <img src={`https://mern-blog-app-mocha-pi.vercel.app/Images/${post.file}`} alt="" />
           <div className="post_text">
             <h2>{post.title}</h2>
             <p>{post.description}</p>
