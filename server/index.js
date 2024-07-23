@@ -23,7 +23,8 @@ app.use(cors({
 app.use(cookieParser())
 app.use(express.static('public'))
 
-mongoose.connect('mongodb://localhost:27017/blogapp')
+mongoose.connect('mongodb+srv://dhokmangesh678:Mangesh@123@cluster0.gblb4em.mongodb.net/blogapp?retryWrites=true&w=majority&appName=Cluster0')
+
 
 const verifyUser = (req, res, next) => {
     const token = req.cookies.token;
