@@ -9,11 +9,11 @@ const Post = () => {
     const [post, setPost]= useState({})
     const user = useContext(userContext)
     useEffect(()=>{
-axios.get('https://mern-blog-app-mocha-pi.vercel.app/getpostbyid'+id).then(result=> setPost(result.data)).catch(err=> console.log(err))
+axios.get('http://localhost:3001/getpostbyid'+id).then(result=> setPost(result.data)).catch(err=> console.log(err))
     },[])
 
     const handleDelete=()=>{
-      axios.delete('https://mern-blog-app-mocha-pi.vercel.app/deletebyid'+id).then(res => {
+      axios.delete('http://localhost/3001/deletebyid'+id).then(res => {
         if (res.data === "Success") {
             window.location.href = "/"
         }
@@ -22,7 +22,7 @@ axios.get('https://mern-blog-app-mocha-pi.vercel.app/getpostbyid'+id).then(resul
   return (
     <div className='post_container'>
       <div className='post_post'>
-        <img src={`https://mern-blog-app-mocha-pi.vercel.app/Images/${post.file}`} alt="" />
+        <img src={`http://localhost/3001/Images/${post.file}`} alt="" />
         <h2>{post.title}</h2>
         <p>{post.description}</p>
       </div>

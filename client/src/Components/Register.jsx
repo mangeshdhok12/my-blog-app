@@ -13,7 +13,7 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    axios.post('https://mern-blog-app-mocha-pi.vercel.app/register', { username, email, password }).then(res => navigate('/login')).catch(err => console.log(err))
+    axios.post('http://localhost:3001/register', { username, email, password }).then(res => navigate('/login')).catch(err => console.log(err))
 
   }
 

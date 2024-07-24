@@ -12,7 +12,7 @@ const Login = () => {
   const handleSubmit=(e)=>{
  
     e.preventDefault()
-    axios.post('https://mern-blog-app-mocha-pi.vercel.app/login',  {email, password,   withCredentials: true}).then(res=>{
+    axios.post('http://localhost:3001/login',  {email, password,   withCredentials: true}).then(res=>{
       if(res.data === "Success"){
           window.location.href="/"
       }

@@ -21,11 +21,11 @@ function App() {
   //to access the cookies
 axios.defaults.withCredentials=true
   useEffect(()=>{
-    axios.get('https://mern-blog-app-mocha-pi.vercel.app/').then(user=>
+    axios.get('http://localhost:3001/').then(user=>
      { setUser (user.data)}
     
       )
-    .catch(err=> colsole.log(err))
+    .catch(err=> console.log(err))
   },[])
 
   return (

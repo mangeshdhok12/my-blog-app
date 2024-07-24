@@ -11,7 +11,7 @@ const Navbar = () => {
     const navigate= useNavigate()
 
     const handleLogout=()=>{
-      axios.get('https://mern-blog-app-mocha-pi.vercel.app/logout').then(res=>{
+      axios.get('http://localhost:3001/logout').then(res=>{
         if(res.data === "Success")
         navigate('/register')
       }).catch(err=>console.log(err))

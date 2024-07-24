@@ -16,16 +16,16 @@ const app = express()
 
 app.use(express.json())
 app.use(cors({
-    origin: [""],
+    origin: ["http://localhost:5173"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }))
 app.use(cookieParser())
 app.use(express.static('public'))
 
-mongoose.connect('mongodb+srv://dhokmangesh678:Mangesh@123@cluster0.gblb4em.mongodb.net/blogapp?retryWrites=true&w=majority&appName=Cluster0')
+mongoose.connect('mongodb://localhost:27017/blogapp')
 
-
+// mongodb+srv://dhokmangesh678:Mangesh@123@cluster0.gblb4em.mongodb.net/blogapp?retryWrites=true&w=majority&appName=Cluster0
 const verifyUser = (req, res, next) => {
     const token = req.cookies.token;
     if (!token) {
