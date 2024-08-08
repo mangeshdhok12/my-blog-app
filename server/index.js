@@ -26,6 +26,8 @@ app.use(cors({
 dotenv.config({path:"./.env"})
 app.use(cookieParser())
 app.use(express.static('public'))
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "https://my-blog-app-front.vercel.app");
 
 const port= process.env.PORT || 1200
 
