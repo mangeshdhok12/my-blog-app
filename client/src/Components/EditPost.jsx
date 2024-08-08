@@ -17,7 +17,7 @@ const EditPost = () => {
      
 
 
-        axios.put('http://localhost/3001/editpost/'+id,{title, description} ).then(res => {
+        axios.put('http://localhost:3001/editpost/'+id,{title, description} ).then(res => {
             if (res.data === "Success") {
                 window.location.href = "/"
             }
@@ -35,7 +35,7 @@ const EditPost = () => {
         <div className='post_container'>
             <div className='post_form'>
                 <form  onSubmit={handleSubmit}>
-                    <h2>Create Post</h2>
+                    <h2>Edit Post</h2>
                     <input type="text"
                         value={title}
                         onChange={e => setTitle(e.target.value)}

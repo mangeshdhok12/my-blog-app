@@ -8,12 +8,13 @@ const Post = () => {
     const {id}= useParams()
     const [post, setPost]= useState({})
     const user = useContext(userContext)
+    
     useEffect(()=>{
 axios.get('http://localhost:3001/getpostbyid'+id).then(result=> setPost(result.data)).catch(err=> console.log(err))
     },[])
 
     const handleDelete=()=>{
-      axios.delete('http://localhost/3001/deletebyid'+id).then(res => {
+      axios.delete('http://localhost:3001/deletebyid'+id).then(res => {
         if (res.data === "Success") {
             window.location.href = "/"
         }

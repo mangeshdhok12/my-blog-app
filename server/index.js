@@ -16,7 +16,7 @@ const app = express()
 
 app.use(express.json())
 app.use(cors({
-    origin: ["http://localhost:5173"],
+    origin: ["http://localhost:5174"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }))
@@ -124,14 +124,16 @@ app.get('/getpostbyid:id', (req, res) => {
 app.put('/editpost/:id', (req, res)=>{
     const id = req.params.id;
     PostModel.findByIdAndUpdate({_id:id},{
-    title:req.body.title, description:req.body.description}).then(result=>res.json("Success"))
+    title:req.body.title, 
+    description:req.body.description})
+    .then(result=>res.json("Success"))
     .catch(err=> res.json(err))
 })
 
 app.delete('/deletebyid:id', (req, res)=>{
     const id = req.params.id;
     PostModel.findByIdAndDelete({_id:id}).then(result=>res.json("Success"))
-    .catch(err=>rs.json(err))
+    .catch(err=>res.json(err))
 })
 
 app.get('/logout', (req, res) => {
