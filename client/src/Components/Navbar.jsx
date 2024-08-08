@@ -11,7 +11,7 @@ const Navbar = () => {
     const navigate= useNavigate()
 
     const handleLogout=()=>{
-      axios.get('http://localhost:3001/logout').then(res=>{
+      axios.get('https://my-blog-app-back.vercel.app/logout').then(res=>{
         if(res.data === "Success")
         navigate('/register')
       }).catch(err=>console.log(err))

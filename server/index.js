@@ -9,6 +9,8 @@ const multer = require('multer')
 const path = require('path')
 const UserModel = require('./Models/UserModel')
 const PostModel = require('./Models/PostModel')
+const dotenv = require('dotenv')
+
 
 
 
@@ -16,14 +18,18 @@ const app = express()
 
 app.use(express.json())
 app.use(cors({
-    origin: ["http://localhost:5174"],
+    origin: ["https://my-blog-app-front.vercel.app"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }))
+dotenv.config({path:"./.env"})
 app.use(cookieParser())
 app.use(express.static('public'))
 
-mongoose.connect('mongodb://localhost:27017/blogapp')
+const port= process.env.PORT || 1200
+
+mongoose.connect(process.env.URI)
+
 
 // mongodb+srv://dhokmangesh678:Mangesh@123@cluster0.gblb4em.mongodb.net/blogapp?retryWrites=true&w=majority&appName=Cluster0
 const verifyUser = (req, res, next) => {
@@ -64,7 +70,7 @@ app.post('/login', (req, res) => {
             bcrypt.compare(password, user.password, (err, response) => {
                 if (response) {
                     const token = jwt.sign({ email: user.email, username: user.username },
-                        "jwt-secret-key", { expiresIn: '1d' })
+                        process.env.JWT_SECRET_KEY, { expiresIn: '1d' })
                     res.cookie('token', token)
                     return res.json("Success")
                 } else {
@@ -141,6 +147,6 @@ app.get('/logout', (req, res) => {
     return res.json('Success')
 })
 
-app.listen(3001, () => {
-    console.log("Server is running");
+app.listen(port, () => {
+    console.log("Server is running" , port);
 })

@@ -19,7 +19,7 @@ const Create = () => {
     formData.append('email', user.email)
     formData.append('file', file)
 
-    axios.post('http://localhost:3001/create',formData).then(res=>{
+    axios.post('https://my-blog-app-back.vercel.app/create',formData).then(res=>{
       if(res.data ==="Success"){
         window.location.href="/"
       }

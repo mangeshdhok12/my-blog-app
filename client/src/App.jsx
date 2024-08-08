@@ -21,7 +21,7 @@ function App() {
   //to access the cookies
 axios.defaults.withCredentials=true
   useEffect(()=>{
-    axios.get('http://localhost:3001/').then(user=>
+    axios.get('https://my-blog-app-back.vercel.app/').then(user=>
      { setUser (user.data)}
     
       )
