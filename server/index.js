@@ -20,6 +20,7 @@ app.use(express.json())
 app.use(cors({
     origin: ["https://my-blog-app-front.vercel.app"],
     methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"],
     credentials: true
 }))
 dotenv.config({path:"./.env"})
